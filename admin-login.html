@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ff477e">
+  <title>🔐 Khu vực riêng của anh</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/admin-login.css">
+</head>
+<body>
+  <div class="login-bg" aria-hidden="true"><span></span><span></span><span></span></div>
+
+  <main class="login-shell">
+    <section class="login-card" aria-labelledby="loginTitle">
+      <a class="back-link" href="index.html">← Về trang tỏ tình</a>
+      <div class="login-icon" aria-hidden="true">🔐</div>
+      <p class="eyebrow">Private area</p>
+      <h1 id="loginTitle">Khu vực riêng của anh</h1>
+      <p class="login-subtitle">Chỉ tài khoản admin được ủy quyền mới có thể xem những câu trả lời. ❤️</p>
+
+      <form id="loginForm" novalidate>
+        <label for="email">Email</label>
+        <div class="field-wrap">
+          <span aria-hidden="true">✉</span>
+          <input id="email" type="email" autocomplete="username" placeholder="admin@example.com" required>
+        </div>
+
+        <label for="password">Mật khẩu</label>
+        <div class="field-wrap password-field">
+          <span aria-hidden="true">●</span>
+          <input id="password" type="password" autocomplete="current-password" placeholder="Nhập mật khẩu" required>
+          <button id="togglePassword" class="icon-btn" type="button" aria-label="Hiện mật khẩu" aria-pressed="false">👁</button>
+        </div>
+
+        <p id="loginError" class="form-message" role="alert"></p>
+        <button id="loginButton" class="login-button" type="submit">
+          <span class="button-spinner" aria-hidden="true"></span>
+          <span class="button-text">ĐĂNG NHẬP</span>
+        </button>
+      </form>
+
+      <p class="security-note">🛡 Quyền xem dữ liệu được thực thi ở Supabase RLS, không chỉ ở giao diện.</p>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script>
+  <script src="js/supabase-client.js"></script>
+  <script src="js/admin-login.js"></script>
+</body>
+</html>

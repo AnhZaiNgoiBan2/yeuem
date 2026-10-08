@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ff477e">
+  <meta name="description" content="Một câu hỏi dành riêng cho em — một website tỏ tình lãng mạn.">
+  <title>💌 Một câu hỏi dành riêng cho em</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="ambient" aria-hidden="true">
+    <div class="orb orb-a"></div>
+    <div class="orb orb-b"></div>
+    <div class="orb orb-c"></div>
+    <div id="hearts"></div>
+    <div class="sparkles"></div>
+  </div>
+
+  <main class="page-shell">
+    <section class="love-card" aria-labelledby="questionTitle">
+      <div class="top-badge"><span>💌</span> Một câu hỏi dành riêng cho em</div>
+
+      <div class="hero-heart" aria-hidden="true">
+        <span class="heart-ring"></span>
+        <span class="heart-icon">♥</span>
+      </div>
+
+      <p class="eyebrow">Anh có một điều muốn hỏi...</p>
+      <h1 id="questionTitle">Em có đồng ý làm người yêu anh không? <span aria-hidden="true">❤️</span></h1>
+      <p class="subtitle">Chỉ cần một cái tên và một câu trả lời thật lòng. Còn lại, để anh lo. 🥰</p>
+
+      <form id="loveForm" novalidate>
+        <label class="input-label" for="name">Tên của em</label>
+        <div class="input-wrap">
+          <span aria-hidden="true">♡</span>
+          <input id="name" name="name" type="text" maxlength="80" autocomplete="name" placeholder="Nhập tên của em nhé ❤️" required>
+        </div>
+        <p id="nameError" class="field-error" role="alert"></p>
+
+        <div class="button-stage" id="buttonStage" aria-label="Khu vực lựa chọn">
+          <button id="agreeButton" class="btn btn-agree" type="submit">
+            <span class="btn-spinner" aria-hidden="true"></span>
+            <span class="btn-text">ĐỒNG Ý ❤️</span>
+          </button>
+          <button id="rejectButton" class="btn btn-reject" type="button" aria-label="Từ chối (nút sẽ chạy mất)">TỪ CHỐI 😭</button>
+        </div>
+      </form>
+
+      <p class="microcopy">Psst... nút “TỪ CHỐI” hơi nhát người đó 😭</p>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <section id="successView" class="success-view" aria-hidden="true">
+    <div class="success-card">
+      <div class="success-burst" aria-hidden="true">💖</div>
+      <p class="eyebrow">Một câu trả lời quá đẹp</p>
+      <h2>EM ĐỒNG Ý RỒI! ❤️🥰</h2>
+      <p id="successName" class="success-name"></p>
+      <p>Anh biết ngay mà 😘</p>
+      <p class="special-day">Ngày hôm nay chính thức trở thành ngày đặc biệt ❤️</p>
+      <div class="success-hearts" aria-hidden="true">♡ ♥ ♡ ♥ ♡</div>
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script>
+  <script src="js/supabase-client.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ff477e">
+  <meta name="description" content="Admin dashboard cho website tỏ tình.">
+  <title>💖 Những người đã nói YES</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+  <div class="dashboard-bg" aria-hidden="true"><div class="blob blob-1"></div><div class="blob blob-2"></div></div>
+
+  <main class="dashboard-shell" id="dashboardRoot" aria-busy="true">
+    <header class="dashboard-header">
+      <div>
+        <p class="eyebrow">Private dashboard</p>
+        <h1>💖 Những người đã nói YES</h1>
+        <p class="header-subtitle">Theo dõi câu trả lời theo thời gian thực, chỉ dành cho anh.</p>
+      </div>
+      <div class="header-actions">
+        <button id="notificationButton" class="secondary-btn" type="button">🔔 Bật thông báo</button>
+        <button id="refreshButton" class="secondary-btn" type="button">↻ Làm mới</button>
+        <button id="logoutButton" class="danger-btn" type="button">Đăng xuất</button>
+      </div>
+    </header>
+
+    <section class="stat-grid" aria-label="Thống kê">
+      <article class="stat-card primary-stat">
+        <div class="stat-icon">❤️</div>
+        <div>
+          <span>Tổng số người đồng ý</span>
+          <strong id="totalCount">—</strong>
+        </div>
+      </article>
+      <article class="stat-card">
+        <div class="stat-icon">✨</div>
+        <div>
+          <span>Hôm nay</span>
+          <strong id="todayCount">—</strong>
+        </div>
+      </article>
+      <article class="stat-card">
+        <div class="stat-icon">📡</div>
+        <div>
+          <span>Realtime</span>
+          <strong id="realtimeState">Đang kết nối…</strong>
+        </div>
+      </article>
+    </section>
+
+    <section class="content-card">
+      <div class="toolbar">
+        <div>
+          <h2>Danh sách câu trả lời</h2>
+          <p id="listMeta">Đang tải dữ liệu…</p>
+        </div>
+        <div class="toolbar-controls">
+          <label class="search-box" for="searchInput">
+            <span aria-hidden="true">⌕</span>
+            <input id="searchInput" type="search" placeholder="Tìm theo tên…" autocomplete="off">
+          </label>
+          <button id="sortButton" class="secondary-btn" type="button" aria-pressed="true">Mới nhất ↓</button>
+        </div>
+      </div>
+
+      <div id="tableWrap" class="table-wrap">
+        <table>
+          <caption class="sr-only">Danh sách người đã đồng ý</caption>
+          <thead>
+            <tr>
+              <th scope="col">STT</th>
+              <th scope="col">Tên</th>
+              <th scope="col">Trạng thái</th>
+              <th scope="col">Thời gian</th>
+            </tr>
+          </thead>
+          <tbody id="consentBody"></tbody>
+        </table>
+        <div id="emptyState" class="empty-state" hidden>
+          <div class="empty-emoji">🥺</div>
+          <h3>Chưa có ai nói YES...</h3>
+          <p>Hãy gửi link cho người đặc biệt và chờ một khoảnh khắc thật đẹp.</p>
+        </div>
+        <div id="errorState" class="empty-state error-state" hidden>
+          <div class="empty-emoji">⚠️</div>
+          <h3>Không tải được dữ liệu</h3>
+          <p id="errorStateText">Kiểm tra cấu hình Supabase và RLS rồi thử lại.</p>
+          <button id="retryButton" class="secondary-btn" type="button">Thử lại</button>
+        </div>
+      </div>
+    </section>
+
+    <footer class="dashboard-footer">Dữ liệu được bảo vệ bằng Supabase Auth + PostgreSQL RLS. 🔒</footer>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script>
+  <script src="js/supabase-client.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>
